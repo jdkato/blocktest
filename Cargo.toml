@@ -1,0 +1,9 @@
+[package]
+name = "blocktest"
+version = "0.1.0"
+authors = ["Joseph Kato <joseph@jdkato.io>"]
+
+[dependencies]
+clap = "2.30.0"
+walkdir = "2.1.4"
+regex = "0.2.6"
