@@ -7,3 +7,4 @@ authors = ["Joseph Kato <joseph@jdkato.io>"]
 clap = "2.30.0"
 walkdir = "2.1.4"
 regex = "0.2.6"
+pad = "0.1.4"

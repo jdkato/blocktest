@@ -4,9 +4,11 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
+use pad::{PadStr, Alignment};
+
 fn split(line: &String, comment: &str) -> String {
     let code: Vec<&str> = line.split(comment).collect();
-    format!("{}\n", code[0].trim())
+    format!("{}\n", code[0].trim_right())
 }
 
 /// This function extracts code snippets from their larger contexts. A snippet
@@ -29,7 +31,7 @@ fn split(line: &String, comment: &str) -> String {
 ///
 /// Where the snippet begins with the `# my_component begin` line and ends on
 /// the `# my_component end` line.
-pub fn extract(path: &Path, id: &str, languages: &HashMap<&OsStr, &str>) -> String {
+pub fn extract(path: &Path, id: &str, padding: usize, languages: &HashMap<&OsStr, &str>) -> String {
     let delimiter = match languages.get(path.extension().unwrap()) {
             Some(delimiter) => delimiter,
             _ => panic!("{} not supported", path.display()),
@@ -47,14 +49,21 @@ pub fn extract(path: &Path, id: &str, languages: &HashMap<&OsStr, &str>) -> Stri
     let mut content = String::new();
     while reader.read_line(&mut line).unwrap() > 0 {
         {
+            let padded = line.pad_to_width_with_alignment(
+                            line.chars().count() + padding - 1,
+                            Alignment::Right);
             if line.trim().ends_with(begin.as_str()) {
-                content.push_str(split(&line, delimiter).as_str());
+                content.push_str(split(&padded, delimiter).as_str());
                 add_line = true
             } else if line.trim().ends_with(end.as_str()) {
-                content.push_str(split(&line, delimiter).as_str());
+                content.push_str(split(&padded, delimiter).as_str());
                 return content;
             } else if add_line {
-                content.push_str(line.as_str());
+                if line.trim().is_empty() {
+                    content.push_str(line.as_str());
+                } else {
+                    content.push_str(padded.as_str());
+                }
             }
         }
         line.clear();

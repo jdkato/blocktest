@@ -1,4 +1,5 @@
 extern crate clap;
+extern crate pad;
 extern crate regex;
 extern crate walkdir;
 
@@ -57,7 +58,7 @@ fn main() {
     languages.insert(OsStr::new("scala"), "//"); // Scala
     languages.insert(OsStr::new("swift"), "//"); // Swift
 
-    let pat = Regex::new(r#"\{\{< id="(.+)" src="(.+)" >\}\}"#).unwrap();
+    let pat = Regex::new(r#"( *)\{\{< id="(.+)" src="(.+)" >\}\}"#).unwrap();
     let src = matches.value_of("src").unwrap();
     let ext = matches.value_of("ext").unwrap();
 
