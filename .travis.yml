@@ -1,0 +1,6 @@
+language: rust
+cache:
+  - cargo
+script:
+  - cargo build
+  - python tests/check_examples.py

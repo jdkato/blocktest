@@ -12,3 +12,7 @@ Cargo.lock
 **/*.rs.bk
 
 .vscode
+
+content/
+
+blocktest

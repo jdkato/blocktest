@@ -6,7 +6,7 @@ use std::path::Path;
 
 fn split(line: &String, comment: &str) -> String {
     let code: Vec<&str> = line.split(comment).collect();
-    format!("{}\n", code[0])
+    format!("{}\n", code[0].trim())
 }
 
 /// This function extracts code snippets from their larger contexts. A snippet
@@ -36,6 +36,7 @@ pub fn extract(path: &Path, id: &str, languages: &HashMap<&OsStr, &str>) -> Stri
         };
 
     let f = File::open(path).unwrap();
+
     let mut reader = BufReader::new(f);
     let mut line = String::new();
 
