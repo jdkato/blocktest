@@ -34,7 +34,8 @@ fn main() {
     let mut languages: HashMap<&OsStr, &str> = HashMap::new();
     // The languages we support:
     //
-    // TODO: Use syntect to support languages file OCaml:
+    // TODO: Use syntect to support languages like OCaml (which we can't split
+    // easily):
     //    (* This is a single-line comment. *)
     languages.insert(OsStr::new("py"), "#"); // Python
     languages.insert(OsStr::new("rb"), "#"); // Ruby
