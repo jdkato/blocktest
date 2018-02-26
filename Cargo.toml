@@ -2,6 +2,16 @@
 name = "blocktest"
 version = "0.1.0"
 authors = ["Joseph Kato <joseph@jdkato.io>"]
+description = "library for high quality syntax highlighting and code intelligence using Sublime Text's grammars"
+repository = "https://github.com/jdkato/blocktest"
+keywords = ["documentation", "ci"]
+categories = ["command-line-utilities"]
+readme = "README.md"
+license = "MIT"
+exclude = [
+    "examples/*",
+    "tests/*"
+]
 
 [dependencies]
 clap = "2.30.0"
