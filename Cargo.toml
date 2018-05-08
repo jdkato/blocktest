@@ -1,6 +1,6 @@
 [package]
 name = "blocktest"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Joseph Kato <joseph@jdkato.io>"]
 description = "library for high quality syntax highlighting and code intelligence using Sublime Text's grammars"
 repository = "https://github.com/jdkato/blocktest"
