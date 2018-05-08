@@ -53,7 +53,8 @@ pub fn compile(src: &Path, dst: &String, pat: &Regex, languages: &HashMap<&OsStr
             let path = Path::new(&cap[3]);
             let padding = cap[1].chars().count();
             let content = block::extract(&path, &cap[2], padding, languages);
-            compiled = source.replace(definition, content.trim_right());
+            let spaced = str::replace(content.as_str(), "\t", "   ");
+            compiled = source.replace(definition, spaced.trim_right());
         }
 
     write_file(&compiled, dst);
