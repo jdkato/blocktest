@@ -1,4 +1,4 @@
-# blocktest [![Build Status](https://travis-ci.org/jdkato/blocktest.svg?branch=master)](https://travis-ci.org/jdkato/blocktest) [![Crates.io](https://img.shields.io/crates/v/blocktest.svg)](https://crates.io/crates/blocktest)
+# blocktest [![Build Status](https://travis-ci.org/errata-ai/blocktest.svg?branch=master)](https://travis-ci.org/errata-ai/blocktest) [![Crates.io](https://img.shields.io/crates/v/blocktest.svg)](https://crates.io/crates/blocktest)
 
 `blocktest` is a "preprocessor" for markup (e.g., Markdown or reStructuredText) code blocks. It allows you to keep your code and prose separate without duplicating work. The idea is simple: `blocktest` extracts your code examples from within a larger testing context and adds them to your markup at user-specified locations.
 
