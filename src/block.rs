@@ -6,7 +6,7 @@ use std::path::Path;
 
 use pad::{PadStr, Alignment};
 
-fn split(line: &String, comment: &str) -> String {
+fn split(line: &str, comment: &str) -> String {
     let code: Vec<&str> = line.split(comment).collect();
     format!("{}\n", code[0].trim_right())
 }

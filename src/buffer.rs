@@ -10,8 +10,8 @@ use regex::Regex;
 
 use block;
 
-fn write_file(contents: &String, dest: &String) {
-    let location = Path::new(dest.as_str());
+fn write_file(contents: &str, dest: &str) {
+    let location = Path::new(dest);
     fs::create_dir_all(location.parent().unwrap()).unwrap_or_else(|why| {
         println!("! {:?}", why.kind());
     });
@@ -37,7 +37,7 @@ fn write_file(contents: &String, dest: &String) {
 ///
 /// where `id` is a unique label for the particular block and `src` is the file
 /// that contains the source code.
-pub fn compile(src: &Path, dst: &String, pat: &Regex, languages: &HashMap<&OsStr, &str>) {
+pub fn compile(src: &Path, dst: &str, pat: &Regex, languages: &HashMap<&OsStr, &str>) {
     let display = src.display();
     let mut file = match File::open(src) {
             Err(why) => panic!("couldn't open {}: {}", display, why),
