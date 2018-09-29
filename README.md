@@ -37,3 +37,14 @@ With `blocktest`, you need two files:
 
 ## Getting Started
 
+###### Installation
+
+```shell
+$ cargo install blocktest
+```
+
+###### Usage
+
+```
+$ blocktest input_dir .md output_dir
+```
